@@ -1,0 +1,319 @@
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Defaults */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Light mode (default) */
+:root {
+  --bg-primary: #fafbfc;
+  --bg-secondary: #f3f4f6;
+  --bg-surface: #ffffff;
+  --bg-hover: #f1f5f9;
+  --bg-tertiary: #e5e7eb;
+  
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-tertiary: #94a3b8;
+  
+  /* Canvas specific colors */
+  --canvas-bg: #fafbfc;
+  --canvas-dots: #e2e8f0;
+  --canvas-text: #0f172a;
+  --canvas-icon: #475569;
+  --node-bg: #ffffff;
+  --node-text: #0f172a;
+  --node-border: #e2e8f0;
+  
+  --border-color: #e2e8f0;
+  --shadow-color: rgba(0, 0, 0, 0.05);
+  
+  --quantum-accent: #14b8a6;
+  --energy-accent: #f59e0b;
+}
+
+/* Dark mode */
+[data-theme="dark"] {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-surface: #1e293b;
+  --bg-hover: #334155;
+  --bg-tertiary: #334155;
+  
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --text-tertiary: #94a3b8;
+  
+  /* Canvas specific colors - CANVAS STAYS DARK, NODES STAY WHITE */
+  --canvas-bg: #0f172a;
+  --canvas-dots: #334155;
+  --canvas-text: #f1f5f9;
+  --canvas-icon: #cbd5e1;
+  --node-bg: #ffffff;
+  --node-text: #0f172a; /* FORCE BLACK TEXT IN NODES */
+  --node-border: #cbd5e1;
+  
+  --border-color: #334155;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  
+  --quantum-accent: #14b8a6;
+  --energy-accent: #f59e0b;
+}
+
+/* Body background */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ReactFlow Canvas Background */
+.react-flow__background {
+  background-color: var(--canvas-bg) !important;
+}
+
+.react-flow {
+  background-color: var(--canvas-bg) !important;
+}
+
+.react-flow__pane {
+  background-color: var(--canvas-bg) !important;
+}
+
+/* Canvas Dots Pattern */
+.react-flow__background-pattern-dots circle {
+  fill: var(--canvas-dots) !important;
+  opacity: 0.3 !important;
+  r: 0.8 !important;
+}
+
+.react-flow__background-pattern circle {
+  fill: var(--canvas-dots) !important;
+  opacity: 0.25 !important;
+  r: 0.5 !important;
+}
+
+/* Fix Node Colors - NODES STAY WHITE, TEXT STAYS BLACK */
+.react-flow__node {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: var(--node-border) !important;
+}
+
+/* CRITICAL: All text inside nodes must be BLACK (not white) */
+.react-flow__node * {
+  color: #0f172a !important;
+}
+
+/* Node icons - slightly gray for contrast */
+.react-flow__node svg {
+  color: #475569 !important;
+  stroke: currentColor !important;
+}
+
+/* Connection Handles */
+.react-flow__handle {
+  width: 12px !important;
+  height: 12px !important;
+  border: 2px solid #ffffff !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.react-flow__handle-top,
+.react-flow__handle-bottom {
+  background: #10b981 !important;
+}
+
+.react-flow__handle-left,
+.react-flow__handle-right {
+  background: #f59e0b !important;
+}
+
+.react-flow__handle:hover {
+  transform: scale(1.3) !important;
+}
+
+/* Better Edge Styling */
+.react-flow__edge-path {
+  stroke: #667eea !important;
+  stroke-width: 2 !important;
+}
+
+.react-flow__edge.selected .react-flow__edge-path {
+  stroke: #764ba2 !important;
+  stroke-width: 3 !important;
+}
+
+.react-flow__edge.animated .react-flow__edge-path {
+  stroke-dasharray: 5;
+  animation: dashdraw 0.5s linear infinite;
+}
+
+/* Fix Controls (zoom buttons) */
+.react-flow__controls {
+  background-color: var(--node-bg) !important;
+  border: 1px solid var(--node-border) !important;
+}
+
+.react-flow__controls-button {
+  background-color: var(--node-bg) !important;
+  color: var(--canvas-text) !important;
+  border-color: var(--node-border) !important;
+}
+
+.react-flow__controls-button:hover {
+  background-color: var(--bg-hover) !important;
+}
+
+.react-flow__controls-button svg {
+  fill: var(--canvas-text) !important;
+}
+
+/* Fix Minimap - SHOW COLORED BLOCKS */
+.react-flow__minimap {
+  background-color: var(--node-bg) !important;
+  border: 1px solid var(--node-border) !important;
+}
+
+.react-flow__minimap-mask {
+  fill: var(--canvas-bg) !important;
+  opacity: 0.6;
+}
+
+/* Minimap Nodes - COLOR BY TYPE */
+.react-flow__minimap-node {
+  fill: #94a3b8 !important; /* Default gray */
+  stroke: #64748b !important;
+  stroke-width: 2;
+}
+
+/* Input nodes - Blue */
+.react-flow__minimap-node[data-nodetype="input"] {
+  fill: #3b82f6 !important;
+  stroke: #2563eb !important;
+}
+
+/* Preprocess nodes - Purple */
+.react-flow__minimap-node[data-nodetype="preprocess"] {
+  fill: #a855f7 !important;
+  stroke: #9333ea !important;
+}
+
+/* ML nodes - Green */
+.react-flow__minimap-node[data-nodetype="ml"] {
+  fill: #10b981 !important;
+  stroke: #059669 !important;
+}
+
+/* Quantum nodes - Cyan */
+.react-flow__minimap-node[data-nodetype="quantum"] {
+  fill: #06b6d4 !important;
+  stroke: #0891b2 !important;
+}
+
+/* Output nodes - Orange */
+.react-flow__minimap-node[data-nodetype="output"] {
+  fill: #f59e0b !important;
+  stroke: #d97706 !important;
+}
+
+/* Fix Edge Labels */
+.react-flow__edge-text {
+  fill: var(--canvas-text) !important;
+}
+
+.react-flow__edge-textbg {
+  fill: var(--node-bg) !important;
+  opacity: 0.9;
+}
+
+/* Canvas Container */
+.canvas-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--text-tertiary);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+
+/* ADD THESE STYLES TO THE END OF YOUR index.css */
+
+/* Fix connection lines z-index */
+.react-flow__edges {
+  z-index: 1 !important;
+}
+
+.react-flow__nodes {
+  z-index: 5 !important;
+}
+
+.react-flow__node {
+  z-index: 5 !important;
+}
+
+.react-flow__node:hover,
+.react-flow__node.selected {
+  z-index: 10 !important;
+}
+
+/* Remove white rectangle border around nodes */
+.react-flow__node-custom {
+  border: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+/* Fix handles appearing above nodes */
+.react-flow__handle {
+  z-index: 15 !important;
+}
+
+/* Edges should go behind handles */
+.react-flow__edge {
+  z-index: 1 !important;
+}
+
+.react-flow__edge.selected {
+  z-index: 2 !important;
+}
+
+/* Animation */
+@keyframes dashdraw {
+  to {
+    stroke-dashoffset: -10;
+  }
+}
