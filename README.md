@@ -6,7 +6,7 @@
 [![React](https://img.shields.io/badge/React-18.x-61DAFB?logo=react)](https://reactjs.org/)
 [![TensorFlow.js](https://img.shields.io/badge/TensorFlow.js-4.x-FF6F00?logo=tensorflow)](https://www.tensorflow.org/js)
 
-**Live Demo:** [Your Deployed URL] | **GitHub:** [https://github.com/Sahithi-Vaitla/quantum-ml-builder](https://github.com/Sahithi-Vaitla/quantum-ml-builder)
+**Live Demo:** [https://quantumcanvasbuilder.netlify.app/app] | **GitHub:** [https://github.com/Sahithi-Vaitla/quantum-ml-builder](https://github.com/Sahithi-Vaitla/quantum-ml-builder)
 
 ---
 
@@ -365,8 +365,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Sahithi Vaitla**
 - GitHub: [@Sahithi-Vaitla](https://github.com/Sahithi-Vaitla)
-- Email: [Your Email]
-- LinkedIn: [Your LinkedIn]
+- Email: sahithivaitla125@gmail.com
+- LinkedIn: https://www.linkedin.com/in/sahithivaitla/
 
 ---
 
@@ -390,7 +390,7 @@ If you find this project useful, please consider giving it a star! ⭐
 
 - **Issues:** [GitHub Issues](https://github.com/Sahithi-Vaitla/quantum-ml-builder/issues)
 - **Discussions:** [GitHub Discussions](https://github.com/Sahithi-Vaitla/quantum-ml-builder/discussions)
-- **Email:** [Your Email]
+- **Email:** sahithivaitla125@gmail.com
 
 ---
 
